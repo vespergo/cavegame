@@ -4,9 +4,25 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="https://pixijs.download/release/pixi.js"></script>
-    
+    <link href="core.css" rel="stylesheet" />
 </head>
 <body>
     <script src="src/game.js"></script>
+    <div class="inventory">
+        <img onclick="selectTile(this)" tilename="lava" src="img/blocks/lava.png" />
+        <img onclick="selectTile(this)" tilename="marble" src="img/blocks/marble.png" />
+        <img onclick="selectTile(this)" tilename="water" src="img/blocks/water.png" />
+    </div>
+
+    <script>
+        
+        function selectTile(e) {
+            sessionStorage['currentTile'] = e.getAttribute('tilename');
+            var prevHighlightedTile = document.querySelector('.highlight');
+            if(prevHighlightedTile) prevHighlightedTile.classList.remove('highlight');
+            e.classList.add('highlight');
+        }
+
+    </script>
 </body>
 </html>

@@ -1,7 +1,11 @@
-﻿let app = new PIXI.Application({ width: 640, height: 360 });
+﻿
+let app = new PIXI.Application({ width: 640, height: 360 });
 document.body.appendChild(app.view);
+PIXI.settings.TARGET_FPMS = 0.03;
 
 let marble = PIXI.Texture.from('/img/blocks/marble.png');
+let water = PIXI.Texture.from('/img/blocks/water.png');
+let lava = PIXI.Texture.from('/img/blocks/lava.png');
 
 let background = new PIXI.Sprite(PIXI.Texture.BLACK);
 background.width = app.screen.width;
@@ -22,7 +26,6 @@ app.ticker.add((delta) => {
         let child = app.stage.children[i];
 
         if (child.y + child.height <= app.screen.height) {
-            child.x += 1;
             child.y += 2
         }
     }
@@ -30,8 +33,20 @@ app.ticker.add((delta) => {
 
 
 function Test(e) {
-    let sprite = new PIXI.Sprite(marble);
+    sprite = GetCurrentTile();
     sprite.x = e.data.global.x;
     sprite.y = e.data.global.y;
     app.stage.addChild(sprite);
+}
+
+function GetCurrentTile() {
+    let sprite;
+    if (sessionStorage['currentTile'] == 'marble')
+        sprite = new PIXI.Sprite(marble);
+    else if (sessionStorage['currentTile'] == 'water')
+        sprite = new PIXI.Sprite(water);
+    else if (sessionStorage['currentTile'] == 'lava')
+        sprite = new PIXI.Sprite(lava);
+
+    return sprite;
 }
