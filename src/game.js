@@ -10,13 +10,22 @@ let grass = PIXI.Texture.from('/img/blocks/grass.png');
 let dirt = PIXI.Texture.from('/img/blocks/dirt.png');
 let bedrock = PIXI.Texture.from('/img/blocks/bedrock.png');
 let stone = PIXI.Texture.from('/img/blocks/stone.png');
+let god = PIXI.Texture.from('/img/blocks/god.png');
+let pattern = PIXI.Texture.from('/img/blocks/pattern.png');
 
-let background = new PIXI.Sprite(PIXI.Texture.BLACK);
+let background = new PIXI.Sprite(PIXI.Texture.BLUE);
 background.width = app.screen.width;
 background.height = app.screen.height;
 background.interactive = true;
-background.on('pointerdown', Test);
+background.on('pointerdown', PlaceBlock);
 app.stage.addChild(background);
+
+//add in extra items
+let player = PIXI.Sprite.from('/img/player.png');
+player.x = 10;
+player.y = app.screen.height - player.height;
+app.stage.addChild(player);
+
 
 
 app.ticker.add((delta) => {
@@ -37,7 +46,7 @@ app.ticker.add((delta) => {
         }
 
         if (child.moving) {
-            //lower bounds
+            //stop block from moving down if its already at the bottom.
             if (child.y + child.height <= app.screen.height) {
                 child.y += 2
             } else {
@@ -49,7 +58,7 @@ app.ticker.add((delta) => {
 });
 
 
-function Test(e) {
+function PlaceBlock(e) {
     sprite = GetCurrentTile();
     sprite.x = e.data.global.x;
     sprite.y = e.data.global.y;
@@ -79,6 +88,28 @@ function GetCurrentTile() {
         sprite = new PIXI.Sprite(stone);
     else if (sessionStorage['currentTile'] == 'dirt')
         sprite = new PIXI.Sprite(dirt);
+    else if (sessionStorage['currentTile'] == 'god')
+        sprite = new PIXI.Sprite(god);
+    else if (sessionStorage['currentTile'] == 'pattern')
+        sprite = new PIXI.Sprite(pattern);
 
     return sprite;
 }
+//move our player around
+document.addEventListener('keydown', function (event) {
+    const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+    switch (event.key) {
+        case "ArrowLeft":
+            player.x -= 3;
+            break;
+        case "ArrowRight":
+            player.x += 3;
+            break;
+        case "ArrowUp":
+            
+            break;
+        case "ArrowDown":
+            // Down pressed
+            break;
+    }
+});
