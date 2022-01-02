@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <script src="https://pixijs.download/release/pixi.js"></script>
+    <script src="src/phaser.min.js"></script>
     <link href="core.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
 <body>
     <script src="src/game.js"></script>
+    <div id="game"></div>
     <div class="inventory">
         <img onclick="selectTile(this)" tilename="grass" src="img/blocks/grass.png" />
         <img onclick="selectTile(this)" tilename="bedrock" src="img/blocks/bedrock.png" />
