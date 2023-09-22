@@ -70,16 +70,26 @@
     <Content Include="core.css" />
     <Content Include="game.html" />
     <Content Include="img\blocks\bedrock.png" />
+    <Content Include="img\blocks\coal.png" />
+    <Content Include="img\blocks\coal_block.png" />
+    <Content Include="img\blocks\commandblock.png" />
+    <Content Include="img\blocks\diamond.png" />
+    <Content Include="img\blocks\diamond_block.png" />
     <Content Include="img\blocks\dirt.png" />
-    <Content Include="img\blocks\god.png" />
+    <Content Include="img\blocks\gold.png" />
+    <Content Include="img\blocks\gold_block.png" />
     <Content Include="img\blocks\grass.png" />
+    <Content Include="img\blocks\iron.png" />
+    <Content Include="img\blocks\iron_block.png" />
     <Content Include="img\blocks\lava.png" />
     <Content Include="img\blocks\marble.png" />
     <Content Include="img\blocks\pattern.png" />
+    <Content Include="img\blocks\silver_ore.png" />
     <Content Include="img\blocks\stone.png" />
     <Content Include="img\blocks\water.png" />
     <Content Include="img\cave.jpg" />
     <Content Include="img\favicon.ico" />
+    <Content Include="img\items\wooden_pickaxe.png" />
     <Content Include="img\player.png" />
     <Content Include="img\sun.png" />
     <Content Include="index.html" />
@@ -94,6 +104,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\vesFreeAppService - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

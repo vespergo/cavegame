@@ -10,6 +10,7 @@
     <UseGlobalApplicationHostFile />
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <ProjectView>ProjectFiles</ProjectView>
+    <NameOfLastUsedPublishProfile>C:\projects\cavegame\Properties\PublishProfiles\vesFreeAppService - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
